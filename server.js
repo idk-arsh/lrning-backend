@@ -2,11 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import bcrypt from 'bcrypt';
 import pool from './db.js';
-import fetch from 'node-fetch'; 
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
 
 app.post('/api/Register', async (req, res) => {
   const { name, email, password } = req.body;
@@ -113,29 +114,7 @@ app.delete('/api/courses/:id', async (req, res) => {
   }
 });
 
-// New endpoint for Coursera API
-app.get('/api/coursera', async (req, res) => {
-  const query = req.query.query;
-  const courseraToken = '5SN8agHQOO3nBWN2vzFAQ0VRQcaU';
 
-  try {
-    const response = await fetch(`https://api.coursera.org/api/courses.v1?q=search&query=${query}`, {
-      headers: {
-        Authorization: `Bearer ${courseraToken}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const data = await response.json();
-    res.json(data);
-  } catch (err) {
-    console.error('Error fetching Coursera courses:', err);
-    res.status(500).send('Server Error');
-  }
-});
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {

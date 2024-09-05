@@ -4,10 +4,10 @@ const { Pool } = pg;
 
 
 const pool = new Pool({
-  user: 'hello_2bns_user',
-  host: 'dpg-cratsdjtq21c73cda4g0-a',
-  database: 'hello_2bns',
-  password: 'TV15d9t9o1NXSVygIyZ23QX3NbfJVX0F',
+  user: 'ash_xoge_user',
+  host: 'dpg-crcgqjt2ng1s73crv7pg-a',
+  database: 'ash_xoge',
+  password: 'ksLJZAIXUn7D6jdrOHNsUGZZ0psF3icm',
   port: 5432,
   ssl: {
     rejectUnauthorized: false
